@@ -47,7 +47,6 @@ finalData <- cbind(feature, activity, subject)
 ## 2. Extracts only the measurement on the mean and sd for each measurement
 ##
 colWithMeanSTD <- grep(".*(mean|std).*", names(finalData), ignore.case=TRUE)
-
 requiredCol <- c(colWithMeanSTD, 562, 563)
 extractData <- finalData[,requiredCol]
 
@@ -66,7 +65,7 @@ extractData$Activity <- as.factor(extractData$Activity)
 ##
 ## Look at the extractData using names(extractData), the following acronyms need to replace
 ##
-## By examining extractedData, we can say that the following acronyms can be replaced:
+## By examining extractData, we can say that the following acronyms can be replaced:
 ##    Acc can be replaced with Accelerometer
 ##    Gyro can be replaced with Gyroscope
 ##    BodyBody can be replaced with Body
@@ -100,4 +99,5 @@ library(dplyr)
 tidyData <- aggregate(. ~Subject + Activity, extractData, mean)
 tidyData <- tidyData[order(tidyData$Subject, tidyData$Activity),]
 
-write.table(tidyData, file = "Tidy.dat", row.names = FALSE)
+## Output the file
+write.table(tidyData, file="Tidy.txt", row.names=FALSE)
