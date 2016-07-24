@@ -49,6 +49,6 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 ## Output
 
-The output data "Tidy.dat" is a space-delimited separate value file. The header contains the names of the variables. It contains the mean and Standard Deviation of each measurement.
+The output data "Tidy.txt" is a space-delimited separate value file. The header contains the names of the variables. It contains the mean and Standard Deviation of each measurement.
 
 
