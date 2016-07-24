@@ -38,7 +38,7 @@ This repos contains
    1. run_analysis.R : the R-code run on the data set
    2. Tidy.dat : the clean data extracted from the original data using run_analysis.R
    3. CodeBook.md : the CodeBook reference to the variables in Tidy.dat
-   4. README.md : This File - the analysis of the code in run_analysis.R
+   4. README.md : This File - The analysis of the code in run_analysis.R. 
    
 
 ###Libraries Used
@@ -51,7 +51,7 @@ library(dplyr)
 ```
 
 
-## 0. Setup - Download dataset and Read Metadata
+## 0. Setup - Download dataset. Read and format Metadata
 ###Download dataset zip file.
 ```{r}
 URLF <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
@@ -111,7 +111,7 @@ Extract the column indices that have either mean or std in them.
 colWithMeanSTD <- grep(".*(mean|std).*", names(finalData), ignore.case=TRUE)
 
 ```
-Add activity and subject columns to the list and look at the dimension of `completeData` 
+Add activity and subject columns to the list and look at the dimension of `finalData` 
 ```{r}
 requiredCol <- c(colWithMeanSTD, 562, 563)
 dim(finalData)
@@ -121,7 +121,7 @@ dim(finalData)
 [1] 10299   563
 
 
-We create `extractedData` with the selected columns in `requiredColumns`. And again, we look at the dimension of `requiredColumns`. 
+We create `extractedData` with the selected columns in `requiredCol`. And again, we look at the dimension of `requiredCol`. 
 ```{r}
 extractData <- finalData[,requiredCol]
 dim(extractData)
