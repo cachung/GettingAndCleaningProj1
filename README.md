@@ -51,8 +51,8 @@ library(dplyr)
 ```
 
 
-## Setup - Download dataset and Read Metadata
-Download dataset.
+## 0. Setup - Download dataset and Read Metadata
+###Download dataset zip file.
 ```{r}
 URLF <- "https://d396qusza40orc.cloudfront.net/getdata%2Fprojectfiles%2FUCI%20HAR%20Dataset.zip"
 if (!file.exists("UCIdataset.zip")) {
@@ -61,24 +61,24 @@ if (!file.exists("UCIdataset.zip")) {
 unzip (zipfile="UCIdataset.zip", exdir = "./data")
 ```
 
-Read in the data from files. Read features labels and activity labels into table.
+###Read in the data from files. Read features labels and activity labels into table.
 ```{r}
 features     = read.table('./data/UCI HAR Dataset/features.txt',header=FALSE)
 activityType = read.table('./data/UCI HAR Dataset/activity_labels.txt',header=FALSE)
 ```
 
-##Format data sets
+###Format data sets
 
 Both training and test data sets are split up into subject, activity and features. They are present in three different files. 
 
-###Read training data
+####Read Training data
 ```{r}
 subjectTrain = read.table('./data/UCI HAR Dataset/train/subject_train.txt',header=FALSE)
 featureTrain = read.table('./data/UCI HAR Dataset/train/x_train.txt',header=FALSE)
 activityTrain = read.table('./data/UCI HAR Dataset/train/y_train.txt',header=FALSE)
 ```
 
-###Read test data
+####Read Test data
 ```{r}
 subjectTest  = read.table('./data/UCI HAR Dataset/test/subject_test.txt',header=FALSE)
 featureTest  = read.table('./data/UCI HAR Dataset/test/x_test.txt',header=FALSE)
