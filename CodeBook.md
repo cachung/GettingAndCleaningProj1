@@ -21,8 +21,14 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 - `subject_train.txt` = information on the subjects from whom data is collected.
 - `X_test.txt` = variable features that are intended for testing.
 - `y_test.txt` = the activities corresponding to `X_test.txt`.
-- `subject_test.txt` = information on the subjects from whom data is collected.
+- `subject_test.txt` = information on the subjects from whom data is collected. 10299 observations.
 - `activity_labels.txt` = metadata on the different types of activities.
+      * WALKING
+      * WALKING_UPSTAIRS
+      * WALKING_DOWNSTAIRS
+      * SITTING
+      * STANDING
+      * LAYING
 - `features.txt` = the name of the features in the data sets.
 
 
