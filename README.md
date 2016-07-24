@@ -323,11 +323,12 @@ Firstly, let us set `Subject` as a factor variable.
 extractData$Subject <- as.factor(extractData$Subject)
 extractData <- data.table(extractData)
 ```
-We create `tidyData` as a data set with average for each activity and subject. Then, we order the entries in `tidyData` and write it into data file `Tidy.dat` that contains the processed data.
+We create `tidyData` as a data set with average for each activity and subject. Then, we order the entries in `tidyData` and write it into data file `Tidy.txt` that contains the processed data.
 
 ```{r}
 tidyData <- aggregate(. ~Subject + Activity, extractedData, mean)
 tidyData <- tidyData[order(tidyData$Subject,tidyData$Activity),]
-write.table(tidyData, file = "Tidy.txt", row.names = TRUE)
+
+write.table(tidyData, file = "Tidy.txt", row.names = FALSE)
 ```
 
