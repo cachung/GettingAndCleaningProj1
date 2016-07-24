@@ -27,25 +27,25 @@ The sensor signals (accelerometer and gyroscope) were pre-processed by applying 
 
 
 ## Transformation
-- Training Data Set
--- subject_train.txt reads into subjectTrain
--- x_train.txt reads into featureTrain
--- y_train.txt reads into activityTrain
-- Test Data Set
--- subject_test.txt reads into TestTrain
--- x_test.txt reads into featureTest
--- y_test.txt read into activityTest
-- Labels
--- features.txt reads into features
--- activity_labels.txt reads into activityType
-- Combine training and test data set
--- Merge all subjects in training and test data set into "subject"
--- Merge all activities in training and test data set into "activity"
--- Merge all features in training and test data set into "feature"
--- Combine feature, subject, activity into finalData
-- Clean up the variable names
--- Acronyms in variable names in `extractData`, like 'Acc', 'Gyro', 'Mag', 't' and 'f' are replaced with descriptive labels such as 'Accelerometer', 'Gyroscpoe', 'Magnitude', 'Time' and 'Frequency'.
--- `tidyData` is created as a set with average for each activity and subject of `extractData`. Entries in `tidyData` are ordered based on activity and subject.
+1. Training Data Set
+⋅⋅* subject_train.txt reads into subjectTrain
+⋅⋅* x_train.txt reads into featureTrain
+⋅⋅* y_train.txt reads into activityTrain
+2. Test Data Set
+⋅⋅* subject_test.txt reads into TestTrain
+⋅⋅* x_test.txt reads into featureTest
+⋅⋅* y_test.txt read into activityTest
+3. Labels
+⋅⋅* features.txt reads into features
+⋅⋅* activity_labels.txt reads into activityType
+4. Combine training and test data set
+⋅⋅* Merge all subjects in training and test data set into "subject"
+⋅⋅* Merge all activities in training and test data set into "activity"
+⋅⋅* Merge all features in training and test data set into "feature"
+⋅⋅* Combine feature, subject, activity into finalData
+5. Clean up the variable names
+⋅⋅* Acronyms in variable names in `extractData`, like 'Acc', 'Gyro', 'Mag', 't' and 'f' are replaced with descriptive labels such as 'Accelerometer', 'Gyroscpoe', 'Magnitude', 'Time' and 'Frequency'.
+⋅⋅* `tidyData` is created as a set with average for each activity and subject of `extractData`. Entries in `tidyData` are ordered based on activity and subject.
 
 ## Output
 
