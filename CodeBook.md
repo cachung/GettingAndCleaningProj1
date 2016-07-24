@@ -1,9 +1,11 @@
-# Description
+# CodeBook
+
+## Description
+This document is to describe how the data transformed by run_analysis.R script and the definition of variables in Tidy.dat.
 
 
-
-
-# Data Set Information:
+## Input Data Set
+### Data Set Used as follow:
 (Source: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones#)
 [![Experiment Video](http://img.youtube.com/vi/YOUTUBE_VIDEO_ID_HERE/0.jpg)](https://www.youtube.com/watch?v=XOEN9W05_4A)
 
@@ -12,52 +14,41 @@ The experiments have been carried out with a group of 30 volunteers within an ag
 
 The sensor signals (accelerometer and gyroscope) were pre-processed by applying noise filters and then sampled in fixed-width sliding windows of 2.56 sec and 50% overlap (128 readings/window). The sensor acceleration signal, which has gravitational and body motion components, was separated using a Butterworth low-pass filter into body acceleration and gravity. The gravitational force is assumed to have only low frequency components, therefore a filter with 0.3 Hz cutoff frequency was used. From each window, a vector of features was obtained by calculating variables from the time and frequency domain.
 
-Records of activity windows. Each one composed of:
-- A 561-feature vector with time and frequency domain variables.
-- Its associated activity label.
-- An identifier of the subject who carried out the experiment.
+### The Content of UCIdataset.zip
 
-The dataset includes the following files:
-=========================================
+- `X_train.txt` = variable features that are intended for training.
+- `y_train.txt` = the activities corresponding to `X_train.txt`.
+- `subject_train.txt` = information on the subjects from whom data is collected.
+- `X_test.txt` = variable features that are intended for testing.
+- `y_test.txt` = the activities corresponding to `X_test.txt`.
+- `subject_test.txt` = information on the subjects from whom data is collected.
+- `activity_labels.txt` = metadata on the different types of activities.
+- `features.txt` = the name of the features in the data sets.
 
-- 'README.txt'
 
-- '[Web Link]': The raw triaxial acceleration signal for the experiment number XX and associated to the user number YY. Every row is one acceleration sample (three axis) captured at a frequency of 50Hz.
+## Transformation
+- Training Data Set
+-- subject_train.txt reads into subjectTrain
+-- x_train.txt reads into featureTrain
+-- y_train.txt reads into activityTrain
+- Test Data Set
+-- subject_test.txt reads into TestTrain
+-- x_test.txt reads into featureTest
+-- y_test.txt read into activityTest
+- Labels
+-- features.txt reads into features
+-- activity_labels.txt reads into activityType
+- Combine training and test data set
+-- Merge all subjects in training and test data set into "subject"
+-- Merge all activities in training and test data set into "activity"
+-- Merge all features in training and test data set into "feature"
+-- Combine feature, subject, activity into finalData
+- Clean up the variable names
+-- Acronyms in variable names in `extractData`, like 'Acc', 'Gyro', 'Mag', 't' and 'f' are replaced with descriptive labels such as 'Accelerometer', 'Gyroscpoe', 'Magnitude', 'Time' and 'Frequency'.
+-- `tidyData` is created as a set with average for each activity and subject of `extractData`. Entries in `tidyData` are ordered based on activity and subject.
 
-- '[Web Link]': The raw triaxial angular speed signal for the experiment number XX and associated to the user number YY. Every row is one angular velocity sample (three axis) captured at a frequency of 50Hz.
+## Output
 
-- '[Web Link]': include all the activity labels available for the dataset (1 per row).
-Column 1: experiment number ID,
-Column 2: user number ID,
-Column 3: activity number ID
-Column 4: Label start point (in number of signal log samples (recorded at 50Hz))
-Column 5: Label end point (in number of signal log samples)
+The output data "Tidy.dat" is a space-delimited separate value file. The header contains the names of the variables. It contains the mean and Standard Deviation of each measurement.
 
-- 'features_info.txt': Shows information about the variables used on the feature vector.
 
-- 'features.txt': List of all features.
-
-- 'activity_labels.txt': Links the activity ID with their activity name.
-
-- '[Web Link]': Training set.
-
-- '[Web Link]': Training labels.
-
-- '[Web Link]': Test set.
-
-- '[Web Link]': Test labels.
-
-- '[Web Link]': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
-
-- '[Web Link]': Each row identifies the subject who performed the activity for each window sample. Its range is from 1 to 30.
-
-Notes:
-======
-
-- Features are normalized and bounded within [-1,1].
-- Each feature vector is a row on the 'X' and 'y' files.
-- The units used for the accelerations (total and body) are 'g's (gravity of earth -> 9.80665 m/seg2).
-- The gyroscope units are rad/seg.
-- A video of the experiment including an example of the 6 recorded activities with one of the participants can be seen in the following link: [Web Link]
-
-For more information about this dataset please contact har '@' smartlab.ws or check our website www.smartlab.ws
