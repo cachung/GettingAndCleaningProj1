@@ -95,7 +95,7 @@ activity <- rbind(activityTrain, activityTest)
 colnames(activity) <- "Activity"
 feature <- rbind(featureTrain, featureTest)
 colnames(feature) <- features$V2
-
+```
 
 ###Merge the data
 The data in `features`,`activity` and `subject` are merged data and stored in `finalData`.
